@@ -1,0 +1,51 @@
+{
+  "name": "qiyu-seo",
+  "version": "0.0.1",
+  "description": "SEO SDK for javascript",
+  "keywords": [
+    "qiyu-seo"
+  ],
+  "homepage": "https://oss.qiyutech.tech/seo/seo_index.html",
+  "bugs": {
+    "url": "https://github.com/QiYuTechDev/seo-js-sdk/issues",
+    "email": "dev@qiyutech.tech"
+  },
+  "license": "AGPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QiYuTechDev/seo-js-sdk"
+  },
+  "author": {
+    "name": "QiYuTech",
+    "email": "dev@qiyutech.tech",
+    "url": "https://www.qiyutech.tech/"
+  },
+  "files": [
+    "dist/dt.d.ts",
+    "dist/index.d.ts",
+    "dist/seo_js_sdk.cjs",
+    "dist/seo_js_sdk.cjs.map",
+    "dist/seo_js_sdk.mjs",
+    "dist/seo_js_sdk.mjs.map",
+    "dist/seo_js_sdk.modern.js",
+    "dist/seo_js_sdk.modern.js.map",
+    "dist/seo_js_sdk.umd.js",
+    "dist/seo_js_sdk.umd.js.map",
+    "dist/stub.d.ts",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "./dist/seo_js_sdk.cjs",
+  "umd:main": "dist/seo_js_sdk.umd.js",
+  "module": "dist/seo_js_sdk.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3",
+    "@types/node": "*",
+    "microbundle": "^0.13.3"
+  }
+}
