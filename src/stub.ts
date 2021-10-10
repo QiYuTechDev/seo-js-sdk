@@ -773,7 +773,7 @@ export class Search {
 }
 
 
-const g_default_base_url = "https://127.0.0.1:27123/rest/api";
+const g_default_base_url = "http://127.0.0.1:18082/rest/api";
 let g_base_url: string | null = null;
 
 
