@@ -9,9 +9,9 @@ export class BrowserList {
      */
     public static async do_get(
         args = {},
-        success_cb: (resp: Response) => Promise<dt.BrowserData[]> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.BrowserData[]> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "GET",
             base_url: getGlobalBaseUrl(),
@@ -96,6 +96,134 @@ export class Browser {
 
 }
 
+export class Cc {
+
+    /**
+     * None
+     */
+    public static async do_put(
+        args: {
+            body: dt.CcJobData,
+        },
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
+        failure_cb: (resp: Response) => Promise<any> = null,
+    ): Promise<Record<string, unknown>> {
+        return await doRequest({
+            method: "PUT",
+            base_url: getGlobalBaseUrl(),
+            path_url: "/cc",
+            path_args: args["path_args"] || null,
+            query_args: args["query_args"] || null,
+            header: args["header"] || null,
+            body: args["body"] || null,
+            security: args["security"] || null,
+        }, success_cb, failure_cb);
+    }
+
+    /**
+     * None
+     */
+    public static async do_delete(
+        args: {
+            query_args: { name?: string },
+        },
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
+        failure_cb: (resp: Response) => Promise<any> = null,
+    ): Promise<Record<string, unknown>> {
+        return await doRequest({
+            method: "DELETE",
+            base_url: getGlobalBaseUrl(),
+            path_url: "/cc",
+            path_args: args["path_args"] || null,
+            query_args: args["query_args"] || null,
+            header: args["header"] || null,
+            body: args["body"] || null,
+            security: args["security"] || null,
+        }, success_cb, failure_cb);
+    }
+
+}
+
+export class CcList {
+
+
+    /**
+     * None
+     */
+    public static async do_post(
+        args: {
+            body: dt.CCJobListArgs,
+        },
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
+        failure_cb: (resp: Response) => Promise<any> = null,
+    ): Promise<Record<string, unknown>> {
+        return await doRequest({
+            method: "POST",
+            base_url: getGlobalBaseUrl(),
+            path_url: "/cc/list",
+            path_args: args["path_args"] || null,
+            query_args: args["query_args"] || null,
+            header: args["header"] || null,
+            body: args["body"] || null,
+            security: args["security"] || null,
+        }, success_cb, failure_cb);
+    }
+
+
+}
+
+export class CcTotal {
+    /**
+     * None
+     */
+    public static async do_get(
+        args = {},
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
+        failure_cb: (resp: Response) => Promise<any> = null,
+    ): Promise<Record<string, unknown>> {
+        return await doRequest({
+            method: "GET",
+            base_url: getGlobalBaseUrl(),
+            path_url: "/cc/total",
+            path_args: args["path_args"] || null,
+            query_args: args["query_args"] || null,
+            header: args["header"] || null,
+            body: args["body"] || null,
+            security: args["security"] || null,
+        }, success_cb, failure_cb);
+    }
+
+
+}
+
+export class Ci {
+
+
+    /**
+     * None
+     */
+    public static async do_post(
+        args: {
+            body: dt.RestCiArgs,
+        },
+        success_cb: (resp: Response) => Promise<dt.RestCiResp> = null,
+        failure_cb: (resp: Response) => Promise<any> = null,
+    ): Promise<dt.RestCiResp> {
+        return await doRequest({
+            method: "POST",
+            base_url: getGlobalBaseUrl(),
+            path_url: "/ci",
+            path_args: args["path_args"] || null,
+            query_args: args["query_args"] || null,
+            header: args["header"] || null,
+            body: args["body"] || null,
+            security: args["security"] || null,
+        }, success_cb, failure_cb);
+    }
+
+
+}
+
 export class CodeList {
     /**
      * None
@@ -104,9 +232,9 @@ export class CodeList {
         args: {
             query_args: { name?: string, page_no?: string, page_size?: string },
         },
-        success_cb: (resp: Response) => Promise<dt.CodeData[]> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.CodeData[]> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "GET",
             base_url: getGlobalBaseUrl(),
@@ -324,9 +452,9 @@ export class CrawlList {
         args: {
             query_args: { crawl_name?: string, page_no?: string, page_size?: string },
         },
-        success_cb: (resp: Response) => Promise<dt.CrawlTaskData[]> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.CrawlTaskData[]> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "GET",
             base_url: getGlobalBaseUrl(),
@@ -477,9 +605,9 @@ export class SandboxFunc {
         args: {
             body: dt.RestSandboxRunFuncArgs,
         },
-        success_cb: (resp: Response) => Promise<dt.SandboxRunResult> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.SandboxRunResult> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "POST",
             base_url: getGlobalBaseUrl(),
@@ -505,9 +633,9 @@ export class SandboxCode {
         args: {
             body: dt.RestSandboxRunCodeArgs,
         },
-        success_cb: (resp: Response) => Promise<dt.SandboxRunResult> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.SandboxRunResult> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "POST",
             base_url: getGlobalBaseUrl(),
@@ -529,9 +657,9 @@ export class SearchEngineAll {
      */
     public static async do_get(
         args = {},
-        success_cb: (resp: Response) => Promise<dt.SearchEngineData[]> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.SearchEngineData[]> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "GET",
             base_url: getGlobalBaseUrl(),
@@ -626,9 +754,9 @@ export class Search {
         args: {
             body: dt.RestKeywordSearchArgs,
         },
-        success_cb: (resp: Response) => Promise<dt.KeywordSearchResult[]> = null,
+        success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
-    ): Promise<dt.KeywordSearchResult[]> {
+    ): Promise<Record<string, unknown>> {
         return await doRequest({
             method: "POST",
             base_url: getGlobalBaseUrl(),

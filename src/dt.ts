@@ -18,6 +18,98 @@ export interface CodeFnArgConfig {
     arg_help?: string /* arg_help */
 }
 
+export interface CrawlTaskV2Config {
+    queue_name?: string /* queue_name */
+    fn_name?: string /* fn_name */
+    fn_config?: CodeFnArgConfig[] /* fn_config */
+}
+
+export interface CrawlTaskGenericConfig {
+    v2?: CrawlTaskV2Config[] /* v2 */
+}
+
+export interface CcTaskData {
+    _id?: string /* _id */
+    cc_job_oid?: string /* cc_job_oid */
+    task_name?: string /* task_name */
+    task_config?: CrawlTaskGenericConfig /* None */
+    task_desc?: string /* task_desc */
+    urls?: string /* urls */
+    browser_name?: string /* browser_name */
+    concurrent?: number /* concurrent */
+    cron_rule?: string /* cron_rule */
+    page_timeout?: number /* page_timeout */
+    record_snapshot?: boolean /* record_snapshot */
+    record_rrweb?: boolean /* record_rrweb */
+    record_video?: boolean /* record_video */
+    username?: string /* username */
+    pre_time?: string /* pre_time */
+    next_time?: string /* next_time */
+    run_state?: string /* run_state */
+    disable?: boolean /* disable */
+    ctime?: string /* ctime */
+}
+
+export interface CcJobData {
+    _id?: string /* _id */
+    cc_name?: string /* cc_name */
+    cc_desc?: string /* cc_desc */
+    task_list?: CcTaskData[] /* task_list */
+}
+
+export interface CCJobListArgs {
+    page_no?: number /* page_no */
+    page_size?: number /* page_size */
+    cc_name?: string /* cc_name */
+}
+
+export interface RestCiArgs {
+    browser?: string /* browser */
+    url?: string /* url */
+    fn_code?: string /* fn_code */
+    fn_args?: object /* fn_args */
+    timeout?: number /* timeout */
+    auto_close?: boolean /* auto_close */
+    snapshot?: boolean /* snapshot */
+    pdf?: boolean /* pdf */
+    video?: boolean /* video */
+    rrweb?: boolean /* rrweb */
+}
+
+export interface LogRecord {
+    level?: string /* level */
+    message?: string /* message */
+    context?: object /* context */
+}
+
+export interface BackgroundUrl {
+    url?: string /* url */
+    meta?: object /* meta */
+}
+
+export interface BackgroundTask {
+    url_list?: BackgroundUrl[] /* url_list */
+    js_code?: string /* js_code */
+}
+
+export interface FnExecResultV2 {
+    cancel_job?: boolean /* cancel_job */
+    snapshot_file?: string /* snapshot_file */
+    rrweb_file?: string /* rrweb_file */
+    pdf_file?: string /* pdf_file */
+    video_file?: string /* video_file */
+    final_url?: string /* final_url */
+    url_map?: object /* url_map */
+    page_data?: object /* page_data */
+    log_data?: LogRecord[] /* log_data */
+    background_task?: BackgroundTask /* None */
+}
+
+export interface RestCiResp {
+    error?: string /* error */
+    data?: FnExecResultV2 /* None */
+}
+
 export interface CodeFnQueueConfig {
     queue_name?: string /* queue_name */
     queue_help?: string /* queue_help */
@@ -37,16 +129,6 @@ export interface CodeData {
 
 export interface ApiNameDt {
     name?: string /* name */
-}
-
-export interface CrawlTaskV2Config {
-    queue_name?: string /* queue_name */
-    fn_name?: string /* fn_name */
-    fn_config?: CodeFnArgConfig[] /* fn_config */
-}
-
-export interface CrawlTaskGenericConfig {
-    v2?: CrawlTaskV2Config[] /* v2 */
 }
 
 export interface CrawlTaskData {
@@ -140,31 +222,6 @@ export interface RestSandboxRunFuncArgs {
     fn_args?: object /* fn_args */
 }
 
-export interface LogRecord {
-    level?: string /* level */
-    message?: string /* message */
-    context?: object /* context */
-}
-
-export interface FnQueueUrl {
-    queue_name?: string /* queue_name */
-    url?: string /* url */
-    title?: string /* title */
-    inner_text?: string /* inner_text */
-    inner_html?: string /* inner_html */
-    not_inc_depth?: boolean /* not_inc_depth */
-    add_if_before?: string /* add_if_before */
-}
-
-export interface SandboxRunResult {
-    page_error?: string /* page_error */
-    func_error?: string /* func_error */
-    eval_error?: string /* eval_error */
-    data?: object /* data */
-    logs?: LogRecord[] /* logs */
-    urls?: FnQueueUrl[] /* urls */
-}
-
 export interface RestSandboxRunCodeArgs {
     browser?: string /* browser */
     url?: string /* url */
@@ -185,58 +242,5 @@ export interface SearchEngineData {
 export interface RestKeywordSearchArgs {
     keyword?: string /* keyword */
     se_list?: string[] /* se_list */
-}
-
-export interface SearchResultItem {
-    summary?: string /* summary */
-    url?: string /* url */
-    title?: string /* title */
-    innerText?: string /* innerText */
-    innerHtml?: string /* innerHtml */
-    isAd?: boolean /* isAd */
-}
-
-export interface SearchResultPage {
-    page?: number /* page */
-    url?: string /* url */
-}
-
-export interface BaiduHotData {
-    position?: string /* position */
-    title?: string /* title */
-    url?: string /* url */
-    inner_text?: string /* inner_text */
-    hot_value?: string /* hot_value */
-}
-
-export interface BaiduNewsData {
-    from_src?: string /* from_src */
-}
-
-export interface BaiduExtraData {
-    hots?: BaiduHotData[] /* hots */
-    news?: BaiduNewsData[] /* news */
-}
-
-export interface GoogleNewsData {
-}
-
-export interface GoogleExtraData {
-    news?: GoogleNewsData[] /* news */
-}
-
-export interface SearchResultData {
-    items?: SearchResultItem[] /* items */
-    related?: string[] /* related */
-    pages?: SearchResultPage[] /* pages */
-    baidu?: BaiduExtraData /* None */
-    google?: GoogleExtraData /* None */
-}
-
-export interface KeywordSearchResult {
-    se_name?: string /* se_name */
-    keyword?: string /* keyword */
-    search_result?: SearchResultData /* None */
-    func_log?: LogRecord[] /* func_log */
 }
 
