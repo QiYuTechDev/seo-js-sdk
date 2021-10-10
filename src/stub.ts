@@ -8,7 +8,9 @@ export class BrowserList {
      * None
      */
     public static async do_get(
-        args = {},
+        args: {
+            security: SecurityParamsType,
+        },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
     ): Promise<Record<string, unknown>> {
@@ -34,6 +36,7 @@ export class Browser {
     public static async do_get(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<dt.BrowserData> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -56,6 +59,7 @@ export class Browser {
     public static async do_put(
         args: {
             body: dt.BrowserData,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -78,6 +82,7 @@ export class Browser {
     public static async do_delete(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -104,6 +109,7 @@ export class Cc {
     public static async do_put(
         args: {
             body: dt.CcJobData,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -126,6 +132,7 @@ export class Cc {
     public static async do_delete(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -153,6 +160,7 @@ export class CcList {
     public static async do_post(
         args: {
             body: dt.CCJobListArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -177,7 +185,9 @@ export class CcTotal {
      * None
      */
     public static async do_get(
-        args = {},
+        args: {
+            security: SecurityParamsType,
+        },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
     ): Promise<Record<string, unknown>> {
@@ -205,6 +215,7 @@ export class Ci {
     public static async do_post(
         args: {
             body: dt.RestCiArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<dt.RestCiResp> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -231,6 +242,7 @@ export class CodeList {
     public static async do_get(
         args: {
             query_args: { name?: string, page_no?: string, page_size?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -257,6 +269,7 @@ export class Code {
     public static async do_get(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<dt.CodeData> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -279,6 +292,7 @@ export class Code {
     public static async do_put(
         args: {
             body: dt.CodeData,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -301,6 +315,7 @@ export class Code {
     public static async do_delete(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -328,6 +343,7 @@ export class CrawlStart {
     public static async do_post(
         args: {
             body: dt.ApiNameDt,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -356,6 +372,7 @@ export class CrawlStop {
     public static async do_post(
         args: {
             body: dt.ApiNameDt,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -382,6 +399,7 @@ export class Crawl {
     public static async do_get(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<dt.CrawlTaskData> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -404,6 +422,7 @@ export class Crawl {
     public static async do_put(
         args: {
             body: dt.CrawlTaskData,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -426,6 +445,7 @@ export class Crawl {
     public static async do_delete(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -451,6 +471,7 @@ export class CrawlList {
     public static async do_get(
         args: {
             query_args: { crawl_name?: string, page_no?: string, page_size?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -477,6 +498,7 @@ export class Monitor {
     public static async do_get(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<dt.MonitorTaskData> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -499,6 +521,7 @@ export class Monitor {
     public static async do_put(
         args: {
             body: dt.MonitorTaskData,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -521,6 +544,7 @@ export class Monitor {
     public static async do_delete(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -548,6 +572,7 @@ export class Pdf {
     public static async do_post(
         args: {
             body: dt.PdfArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -576,6 +601,7 @@ export class Html {
     public static async do_post(
         args: {
             body: dt.HtmlArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -604,6 +630,7 @@ export class SandboxFunc {
     public static async do_post(
         args: {
             body: dt.RestSandboxRunFuncArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -632,6 +659,7 @@ export class SandboxCode {
     public static async do_post(
         args: {
             body: dt.RestSandboxRunCodeArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -656,7 +684,9 @@ export class SearchEngineAll {
      * None
      */
     public static async do_get(
-        args = {},
+        args: {
+            security: SecurityParamsType,
+        },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
     ): Promise<Record<string, unknown>> {
@@ -682,6 +712,7 @@ export class SearchEngine {
     public static async do_get(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<dt.SearchEngineData> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -704,6 +735,7 @@ export class SearchEngine {
     public static async do_put(
         args: {
             body: dt.SearchEngineData,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -726,6 +758,7 @@ export class SearchEngine {
     public static async do_delete(
         args: {
             query_args: { name?: string },
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
@@ -753,6 +786,7 @@ export class Search {
     public static async do_post(
         args: {
             body: dt.RestKeywordSearchArgs,
+            security: SecurityParamsType,
         },
         success_cb: (resp: Response) => Promise<Record<string, unknown>> = null,
         failure_cb: (resp: Response) => Promise<any> = null,
